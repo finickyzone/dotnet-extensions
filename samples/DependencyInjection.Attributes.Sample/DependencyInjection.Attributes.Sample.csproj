@@ -6,6 +6,6 @@
     <Using Include="Finickyzone.Extensions.Samples"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DependencyInjection.Attributes\DependencyInjection.Attributes.csproj"/>
+    <ProjectReference Include="../../src/DependencyInjection.Attributes/DependencyInjection.Attributes.csproj"/>
   </ItemGroup>
 </Project>

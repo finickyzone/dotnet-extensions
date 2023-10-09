@@ -4,6 +4,6 @@
     <AssemblyName>Finickyzone.Extensions.DependencyInjection.Attributes.Tests</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DependencyInjection.Attributes\DependencyInjection.Attributes.csproj"/>
+    <ProjectReference Include="../../src/DependencyInjection.Attributes/DependencyInjection.Attributes.csproj"/>
   </ItemGroup>
 </Project>
