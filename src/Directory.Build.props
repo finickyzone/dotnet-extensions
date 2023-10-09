@@ -2,6 +2,7 @@
   <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>icon.png</PackageIcon>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
@@ -11,5 +12,6 @@
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="/"/>
     <None Include="../../imgs/icon.png" Pack="true" PackagePath="/"/>
+    <None Include="../../LICENSE" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>
