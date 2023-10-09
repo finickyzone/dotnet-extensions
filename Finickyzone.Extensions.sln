@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{4D04C0ED-7
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Directory.Packages.props = Directory.Packages.props
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Attributes.Sample", "samples\DependencyInjection.Attributes.Sample\DependencyInjection.Attributes.Sample.csproj", "{FB4EB42C-C5B6-4F5F-AA15-15CF4BC899AB}"
