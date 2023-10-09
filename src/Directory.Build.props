@@ -9,7 +9,7 @@
     <InternalsVisibleTo Include="$(AssemblyName).Tests"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
-    <None Include="../../imgs/icon.png" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="/"/>
+    <None Include="../../imgs/icon.png" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>
