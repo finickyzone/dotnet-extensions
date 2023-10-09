@@ -2,5 +2,6 @@
   <PropertyGroup>
     <RootNamespace>Finickyzone.Extensions.Samples</RootNamespace>
     <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 </Project>
