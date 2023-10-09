@@ -18,7 +18,7 @@ public class ServiceCollectionAttributesExtensionsTests
             new(typeof(TransientService), typeof(TransientService), ServiceLifetime.Transient),
             new(typeof(IService), typeof(TransientServiceImplementation), ServiceLifetime.Transient),
             new(typeof(ScopedService), typeof(ScopedService), ServiceLifetime.Scoped),
-            new(typeof(IService), typeof(ScopedServiceImplementation), ServiceLifetime.Scoped),
+            new(typeof(IService), typeof(ScopedServiceImplementation), ServiceLifetime.Scoped)
         };
 
         // Act

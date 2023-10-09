@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <RootNamespace>Finickyzone.Extensions.Samples</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+</Project>

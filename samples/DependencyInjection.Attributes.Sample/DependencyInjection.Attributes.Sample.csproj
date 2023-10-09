@@ -1,13 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <RootNamespace>Finickyzone.Extensions.Samples</RootNamespace>
-        <AssemblyName>Finickyzone.Extensions.DependencyInjection.Attributes.Sample</AssemblyName>
-        <OutputType>Exe</OutputType>
-    </PropertyGroup>
-    <ItemGroup>
-        <Using Include="Finickyzone.Extensions.Samples"/>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\DependencyInjection.Attributes\DependencyInjection.Attributes.csproj"/>
-    </ItemGroup>
+  <PropertyGroup>
+    <AssemblyName>Finickyzone.Extensions.DependencyInjection.Attributes.Sample</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="Finickyzone.Extensions.Samples"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DependencyInjection.Attributes\DependencyInjection.Attributes.csproj"/>
+  </ItemGroup>
 </Project>

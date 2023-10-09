@@ -15,14 +15,10 @@ public class ServiceAttribute : Attribute
     /// The lifetime of the service.
     /// </summary>
     public ServiceLifetime Lifetime { get; set; }
-    
+
     /// <summary>
-    /// The type of the service to be registered under. If null, the service will be registered as the type this attribute is above.
+    /// The type of the service to be registered under. If null, the service will be registered as the type this attribute is
+    /// above.
     /// </summary>
     public Type? ServiceType { get; }
 }
-
-
-
-
-
