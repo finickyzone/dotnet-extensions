@@ -13,6 +13,6 @@ public abstract class GenericServiceAttribute : ServiceAttribute
     protected internal override void Register(IServiceCollection services, Type targetType)
     {
         MethodInfo methodInfo = typeof(GenericServiceAttribute).GetMethods(BindingFlags.Instance | BindingFlags.NonPublic).Single(m => m is { Name: nameof(Register), IsGenericMethod: true });
-        methodInfo.MakeGenericMethod(targetType).Invoke(this, new object[] { services });
+        methodInfo.MakeGenericMethod(targetType).Invoke(this, [services]);
     }
 }

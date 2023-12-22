@@ -6,8 +6,8 @@ Provides a set of extensions that gives more features or capabilities on top of 
 
 You will need the following tools:
 
-- [.Net 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/), [Visual Studio Code](https://code.visualstudio.com/)
+- [.Net 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [Visual Studio](https://visualstudio.microsoft.com/vs/), [Visual Studio Code](https://code.visualstudio.com/)
   or [Rider](https://www.jetbrains.com/rider/)
 
 ## Packages
@@ -19,7 +19,7 @@ You will need the following tools:
 ## Samples
 
 - [Finickyzone.Extensions.DependencyInjection](samples/DependencyInjection.Sample)
-- [Finickyzone.Extensions.Http](samples/Options.Http)
+- [Finickyzone.Extensions.Http](samples/Http.Sample)
 - [Finickyzone.Extensions.Options](samples/Options.Sample)
 
 ## How to Debug locally

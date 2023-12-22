@@ -3,19 +3,19 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Finickyzone.Extensions.Http;
 
+/// <summary>
+/// Adds the IHttpClientFactory and related services to the DI Container and configures a binding between the Attribute's target and a named HttpClient.
+/// If no name is specified, the client name will be set to the type name of Attribute's target.
+/// </summary>
+/// <param name="name">The logical name of the HttpClient to configure.</param>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-public class HttpClientAttribute : GenericServiceAttribute
+public class HttpClientAttribute(string? name = null) : GenericServiceAttribute
 {
-    public HttpClientAttribute(string? name = null)
-    {
-        Name = name;
-    }
-
     /// <summary>
     /// The logical name of the HttpClient to configure.
     /// Leave empty to used the Attribute's Target type instead.
     /// </summary>
-    public string? Name { get; set; }
+    public string? Name { get; set; } = name;
 
     /// <summary>
     /// The name of the configuration section to bind from.

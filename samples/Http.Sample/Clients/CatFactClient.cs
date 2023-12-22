@@ -6,18 +6,11 @@ namespace Finickyzone.Extensions.Samples.Clients;
 /// Typed client
 /// </summary>
 [HttpClient(ConfigSection = nameof(CatFactClient))]
-public sealed class CatFactClient
+public sealed class CatFactClient(HttpClient client)
 {
-    private readonly HttpClient _client;
-
-    public CatFactClient(HttpClient client)
-    {
-        _client = client;
-    }
-
     public async Task<string?> GetCatFact(CancellationToken cancellationToken = default)
     {
-        var response = await _client.GetFromJsonAsync<Response>("fact", cancellationToken);
+        var response = await client.GetFromJsonAsync<Response>("fact", cancellationToken);
         return response?.Fact;
     }
 
