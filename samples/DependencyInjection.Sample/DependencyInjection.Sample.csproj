@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Finickyzone.Extensions.DependencyInjection.Sample</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DependencyInjection\DependencyInjection.csproj" />
+  </ItemGroup>
+</Project>
