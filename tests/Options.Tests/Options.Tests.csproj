@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Finickyzone.Extensions.Options</RootNamespace>
+    <AssemblyName>Finickyzone.Extensions.Options.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Options\Options.csproj" />
+  </ItemGroup>
+</Project>

@@ -12,11 +12,13 @@ You will need the following tools:
 
 ## Packages
 
-- [Finickyzone.Extensions.DependencyInjection.Attributes](src/DependencyInjection.Attributes)
+- [Finickyzone.Extensions.DependencyInjection](src/DependencyInjection)
+- [Finickyzone.Extensions.Options](src/Options)
 
 ## Samples
 
-- [Finickyzone.Extensions.DependencyInjection.Attributes](samples/DependencyInjection.Attributes.Sample)
+- [Finickyzone.Extensions.DependencyInjection](samples/DependencyInjection.Sample)
+- [Finickyzone.Extensions.Options](samples/Options.Sample)
 
 ## How to Debug locally
 
