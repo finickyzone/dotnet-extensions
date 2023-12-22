@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Finickyzone.Extensions.Http</RootNamespace>
+    <AssemblyName>Finickyzone.Extensions.Http.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Http\Http.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+  </ItemGroup>
+</Project>

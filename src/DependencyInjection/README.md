@@ -16,9 +16,9 @@ Install the [Nuget Package](https://www.nuget.org/packages/Finickyzone.Extension
 dotnet add package Finickyzone.Extensions.DependencyInjection
 ```
 
-## Usage
+## How to use
 
-```c#
+```csharp
 using Finickyzone.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
@@ -53,7 +53,7 @@ The main types provided by this library are:
 - `ScopedAtttribute`
 - `SingletonAttribute`
 - `TransientAttribute`
-- `RegistrableAttribute` to offer extensive capabilities
+- `ServiceAttribute` and `GenericServiceAttribute` to offer extensive capabilities
 
 ## Related Packages
 - [Finickyzone.Extensions.Options](https://www.nuget.org/packages/Finickyzone.Extensions.Options)

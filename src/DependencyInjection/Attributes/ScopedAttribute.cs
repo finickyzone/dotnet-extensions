@@ -6,7 +6,18 @@ namespace Finickyzone.Extensions.DependencyInjection;
 public class ScopedAttribute : ServiceAttribute
 {
     public ScopedAttribute(Type? serviceType = null)
-        : base(serviceType, ServiceLifetime.Scoped)
     {
+        ServiceType = serviceType;
+    }
+
+    /// <summary>
+    /// The type of the service to be registered under. If null, the service will be registered as the type this attribute is
+    /// above.
+    /// </summary>
+    public Type? ServiceType { get; }
+
+    protected internal override void Register(IServiceCollection services, Type targetType)
+    {
+        services.AddScoped(ServiceType ?? targetType, targetType);
     }
 }
