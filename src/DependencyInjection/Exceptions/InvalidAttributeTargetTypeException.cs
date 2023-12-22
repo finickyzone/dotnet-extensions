@@ -15,9 +15,11 @@ public sealed class InvalidAttributeTargetTypeException : InvalidOperationExcept
 
     public Type ExpectedType { get; }
 
-    public static void ThrowIfNotAssignableTo(Type actualType, [NotNull]Type? expectedType)
+    public static void ThrowIfNotAssignableTo([NotNull] Type? actualType, [NotNull] Type? expectedType)
     {
+        ArgumentNullException.ThrowIfNull(actualType);
         ArgumentNullException.ThrowIfNull(expectedType);
+
         if (!actualType.InheritsFrom(expectedType))
         {
             throw new InvalidAttributeTargetTypeException(actualType, expectedType);

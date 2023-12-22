@@ -1,6 +1,4 @@
 namespace Finickyzone.Extensions.DependencyInjection;
 
-[Singleton(typeof(IService))]
-public sealed class SingletonServiceImplementation : IService
-{
-}
+[Singleton<IService>]
+public sealed class SingletonServiceImplementation : IService;

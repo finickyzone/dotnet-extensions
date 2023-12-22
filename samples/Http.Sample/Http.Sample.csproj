@@ -3,6 +3,6 @@
     <AssemblyName>Finickyzone.Extensions.Http.Sample</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Http\Http.csproj" />
+    <ProjectReference Include="..\..\src\Http\Http.csproj" />
   </ItemGroup>
 </Project>

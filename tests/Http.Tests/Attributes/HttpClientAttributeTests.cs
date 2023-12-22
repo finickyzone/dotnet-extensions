@@ -14,11 +14,11 @@ public sealed class HttpClientAttributeTests : IDisposable
     private static readonly string RootBaseAddress = Faker.Internet.Url();
     private static readonly string SectionBaseAddress = Faker.Internet.Url();
 
-    private static readonly Dictionary<string, string> ConfigurationData = new()
-    {
-        { "BaseAddress", RootBaseAddress },
-        { $"{Client_Typed_WithConfigSection.ConfigSection}:BaseAddress", SectionBaseAddress }
-    };
+    private static readonly KeyValuePair<string, string?>[] ConfigurationData =
+    [
+        new("BaseAddress", RootBaseAddress),
+        new($"{Client_Typed_WithConfigSection.ConfigSection}:BaseAddress", SectionBaseAddress)
+    ];
 
     private readonly ServiceProvider _services;
 

@@ -4,11 +4,16 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
-    <Using Include="Xunit"/>
+    <Using Include="Xunit" />
+    <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage" />
+    <AssemblyAttribute Include="Xunit.TestFrameworkAttribute">
+      <_Parameter1>Finickyzone.Extensions.DependencyInjection.DependencyInjectionTestFramework</_Parameter1>
+      <_Parameter2>Finickyzone.Extensions.DependencyInjection.Tests</_Parameter2>
+    </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
-    <PackageReference Include="xunit"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +22,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="FluentAssertions"/>
+    <PackageReference Include="FluentAssertions" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(AssemblyName)' != 'Finickyzone.Extensions.DependencyInjection.Tests'">
+    <ProjectReference Include="..\DependencyInjection.Tests\DependencyInjection.Tests.csproj" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
 
 `Finickyzone.Extensions.DependencyInjection` provides extra functionalities on top
 of [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection).
-It offers you to register your services by simply using Attributes.
+It also offers you to register your services by simply using Attributes.
 
 ## Installation
 
@@ -36,7 +36,7 @@ public interface IMessageWriter
 }
 
 // Create custom implementation and add Attribute to register it in the DI container
-[Singleton(typeof(IMessageWriter))]
+[Singleton<IMessageWriter>]
 internal class MessageWriter : IMessageWriter
 {
     public void Write(string message)
@@ -48,15 +48,21 @@ internal class MessageWriter : IMessageWriter
 
 ## Main Types
 
-The main types provided by this library are:
+Attributes that can be applied on Services:
 
-- `ScopedAtttribute`
-- `SingletonAttribute`
-- `TransientAttribute`
-- `ServiceAttribute` and `GenericServiceAttribute` to offer extensive capabilities
+- `ScopedAttribute` and `ScopedAttribute<TService>`
+- `SingletonAttribute` and `SingletonAttribute<TService>`
+- `TransientAttribute` and `TransientAttribute<TService>`
+
+Attributes that be used for extensive capabilities:
+
+- `ServiceAttribute`
+- `GenericServiceAttribute`
 
 ## Related Packages
+
 - [Finickyzone.Extensions.Options](https://www.nuget.org/packages/Finickyzone.Extensions.Options)
+- [Finickyzone.Extensions.Http](https://www.nuget.org/packages/Finickyzone.Extensions.Http)
 
 ## Feedback & Support
 

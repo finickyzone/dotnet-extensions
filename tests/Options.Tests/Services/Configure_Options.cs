@@ -9,7 +9,7 @@ public class Configure_Options : IConfigureNamedOptions<Options_WithConfigureOpt
     {
     }
 
-    public void Configure(string name, Options_WithConfigureOptions options)
+    public void Configure(string? name, Options_WithConfigureOptions options)
     {
     }
 }

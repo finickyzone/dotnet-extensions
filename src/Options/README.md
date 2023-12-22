@@ -2,9 +2,8 @@
 
 ## Description
 
-`Finickyzone.Extensions.Options` provides extra functionalities on top
-of [Microsoft.Extensions.Options](https://www.nuget.org/packages/Microsoft.Extensions.Options).
-It offers to Bind, Configure and Validate Options by simply using Attributes.
+`Finickyzone.Extensions.Options` provides extra functionalities on top of [Microsoft.Extensions.Options](https://www.nuget.org/packages/Microsoft.Extensions.Options).
+It also offers to Bind, Configure and Validate Options by simply using Attributes.
 
 ## Installation
 
@@ -77,14 +76,29 @@ public class MyConfigValidation : IValidateOptions<MyConfigOptions>
 {
     // ...
 }
+
+[ValidateOptions<MyConfigOptions>]
+[ValidateOptions<MyOtherOptions>]
+public class GenericValidation<TOptions> : IValidateOptions<TOptions>
+    where TOptions : class
+{
+    // ...
+}
 ```
 
 ## Main Types
 
-The main types provided by this library are:
+Attributes that can be applied to Options types:
 
-- `BindConfigurationAttribute`, `ValidateDataAnnotationAttribute`, and `ValidateOnStartAttribute`
-- `ConfigureOptionsAttribute`, `PostConfigureOptionsAttribute`, and `ValidateOptionsAttribute`
+- `BindConfigurationAttribute`
+- `ValidateDataAnnotationAttribute`
+- `ValidateOnStartAttribute`
+
+Attributes that can be applied on Services that are referring to Options:
+
+- `ConfigureOptionsAttribute` and `ConfigureOptionsAttribute<TOptions>`
+- `PostConfigureOptionsAttribute` and `PostConfigureOptionsAttribute<TOptions>`
+- `ValidateOptionsAttribute` and `ValidateOptionsAttribute<TOptions>`
 
 ## Related Packages
 

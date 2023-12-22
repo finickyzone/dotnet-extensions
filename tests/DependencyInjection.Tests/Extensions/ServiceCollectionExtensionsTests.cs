@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Finickyzone.Extensions.DependencyInjection;
 
@@ -10,15 +11,15 @@ public class ServiceCollectionExtensionsTests
     public void AddServicesFromAssembly_WithCurrentAssembly_ShouldReturnExpected()
     {
         // Arrange
-        var expected = new ServiceDescriptor[]
-        {
-            new(typeof(SingletonService), typeof(SingletonService), ServiceLifetime.Singleton),
-            new(typeof(IService), typeof(SingletonServiceImplementation), ServiceLifetime.Singleton),
-            new(typeof(TransientService), typeof(TransientService), ServiceLifetime.Transient),
-            new(typeof(IService), typeof(TransientServiceImplementation), ServiceLifetime.Transient),
-            new(typeof(ScopedService), typeof(ScopedService), ServiceLifetime.Scoped),
-            new(typeof(IService), typeof(ScopedServiceImplementation), ServiceLifetime.Scoped)
-        };
+        ServiceDescriptor[] expected =
+        [
+            new ServiceDescriptor(typeof(SingletonService), typeof(SingletonService), ServiceLifetime.Singleton),
+            new ServiceDescriptor(typeof(IService), typeof(SingletonServiceImplementation), ServiceLifetime.Singleton),
+            new ServiceDescriptor(typeof(TransientService), typeof(TransientService), ServiceLifetime.Transient),
+            new ServiceDescriptor(typeof(IService), typeof(TransientServiceImplementation), ServiceLifetime.Transient),
+            new ServiceDescriptor(typeof(ScopedService), typeof(ScopedService), ServiceLifetime.Scoped),
+            new ServiceDescriptor(typeof(IService), typeof(ScopedServiceImplementation), ServiceLifetime.Scoped)
+        ];
 
         // Act
         IServiceCollection actual = new ServiceCollection().AddServicesFromAssemblyOf<ServiceCollectionExtensionsTests>();
@@ -91,12 +92,12 @@ public class ServiceCollectionExtensionsTests
     public void AddRange_WithArray()
     {
         // Arrange
-        var descriptors = new ServiceDescriptor[]
-        {
-            new(typeof(IService), typeof(SingletonService), ServiceLifetime.Singleton),
-            new(typeof(IService), typeof(TransientService), ServiceLifetime.Transient),
-            new(typeof(IService), typeof(ScopedService), ServiceLifetime.Scoped)
-        };
+        ServiceDescriptor[] descriptors =  
+        [
+            new ServiceDescriptor(typeof(IService), typeof(SingletonService), ServiceLifetime.Singleton),
+            new ServiceDescriptor(typeof(IService), typeof(TransientService), ServiceLifetime.Transient),
+            new ServiceDescriptor(typeof(IService), typeof(ScopedService), ServiceLifetime.Scoped)
+        ];
 
         var expected = new ServiceCollection();
         foreach (ServiceDescriptor descriptor in descriptors)
@@ -112,15 +113,16 @@ public class ServiceCollectionExtensionsTests
     }
     
     [Fact]
+    [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
     public void AddRange_WithEnumerable()
     {
         // Arrange
-        IEnumerable<ServiceDescriptor> descriptors = new ServiceDescriptor[]
-        {
-            new(typeof(IService), typeof(SingletonService), ServiceLifetime.Singleton),
-            new(typeof(IService), typeof(TransientService), ServiceLifetime.Transient),
-            new(typeof(IService), typeof(ScopedService), ServiceLifetime.Scoped)
-        };
+        IEnumerable<ServiceDescriptor> descriptors = 
+        [
+            new ServiceDescriptor(typeof(IService), typeof(SingletonService), ServiceLifetime.Singleton),
+            new ServiceDescriptor(typeof(IService), typeof(TransientService), ServiceLifetime.Transient),
+            new ServiceDescriptor(typeof(IService), typeof(ScopedService), ServiceLifetime.Scoped)
+        ];
 
         var expected = new ServiceCollection();
         foreach (ServiceDescriptor descriptor in descriptors)

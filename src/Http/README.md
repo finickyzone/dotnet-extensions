@@ -3,7 +3,7 @@
 ## Description
 
 `Finickyzone.Extensions.Http` provides extra functionalities on top of [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http).
-It offers to Bind and Configure HttpClient by simply using attributes.
+It also offers to Bind and Configure HttpClient by simply using attributes.
 
 ## Installation
 
@@ -34,18 +34,11 @@ app.Map("/", async (CatFactClient client, CancellationToken token) => Results.Ok
 app.Run();
 
 [HttpClient(ConfigSection = nameof(CatFactClient))]
-public sealed class CatFactClient
+public sealed class CatFactClient CatFactClient(HttpClient client)
 {
-    private readonly HttpClient _client;
-
-    public CatFactClient(HttpClient client)
-    {
-        _client = client;
-    }
-
     public async Task<string?> GetCatFact(CancellationToken cancellationToken = default)
     {
-        var response = await _client.GetFromJsonAsync<Response>("fact", cancellationToken);
+        var response = await client.GetFromJsonAsync<Response>("fact", cancellationToken);
         return response?.Fact;
     }
 
@@ -65,6 +58,15 @@ public sealed class CatFactClient
 
 ## Main Types
 
-The main types provided by this library are:
+Attributes that can be applied to classes using HttpClient:
 
 - `HttpClientAttribute`
+
+## Related Packages
+
+- [Finickyzone.Extensions.DependencyInjection](https://www.nuget.org/packages/Finickyzone.Extensions.DependencyInjection)
+
+## Feedback & Support
+
+If you encounter a bug or would like to request a
+feature, [submit an issue](https://github.com/finickyzone/dotnet-extensions/issues/new/choose).

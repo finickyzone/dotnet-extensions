@@ -2,13 +2,12 @@
   <PropertyGroup>
     <RootNamespace>Finickyzone.Extensions.DependencyInjection</RootNamespace>
     <AssemblyName>Finickyzone.Extensions.DependencyInjection</AssemblyName>
-    <PackageDescription>Service registration extensions for Microsoft.Extensions.DependencyInjection. This package enables you to register your service by simply using Attributes.</PackageDescription>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="Finickyzone.Extensions.Options"/>
+    <InternalsVisibleTo Include="Finickyzone.Extensions.Options" />
   </ItemGroup>
 </Project>

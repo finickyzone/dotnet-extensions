@@ -1,7 +1,6 @@
 ﻿using Finickyzone.Extensions.DependencyInjection;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System.Diagnostics.CodeAnalysis;
 
@@ -53,7 +52,7 @@ public class ServicesExtensionsTests
         IServiceCollection actual = new ServiceCollection().AddServicesFromAssemblyOf<ServicesExtensionsTests>();
 
         // Assert
-        actual.Should().BeEquivalentTo(expected, options => options.Using(ImplementationFactoryComparer.Instance));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
@@ -64,10 +63,10 @@ public class ServicesExtensionsTests
             .AddServicesFromAssemblyOf<ServicesExtensionsTests>()
             .BuildServiceProvider();
 
-        var hostedService = provider.GetRequiredService<IHostedService>();
+        var startupValidator = provider.GetRequiredService<IStartupValidator>();
 
         // Act
-        Exception? exception = await Record.ExceptionAsync(async () => await hostedService.StartAsync(default));
+        Exception? exception = Record.Exception(() => startupValidator.Validate());
 
         // Assert
         exception.Should().NotBeNull();
@@ -84,10 +83,10 @@ public class ServicesExtensionsTests
 
         await using ServiceProvider provider = services.BuildServiceProvider();
 
-        var hostedService = provider.GetRequiredService<IHostedService>();
+        var startupValidator = provider.GetRequiredService<IStartupValidator>();
 
         // Act
-        Exception? exception = await Record.ExceptionAsync(async () => await hostedService.StartAsync(default));
+        Exception? exception = Record.Exception(() => startupValidator.Validate());
 
         // Assert
         exception.Should().BeNull();

@@ -9,7 +9,7 @@ public class Configure_Options_WithOpenGeneric<TOptions> : IConfigureNamedOption
     {
     }
 
-    public void Configure(string name, TOptions options)
+    public void Configure(string? name, TOptions options)
     {
     }
 }
