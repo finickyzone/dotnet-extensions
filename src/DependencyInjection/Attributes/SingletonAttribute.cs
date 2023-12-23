@@ -3,7 +3,7 @@
 namespace Finickyzone.Extensions.DependencyInjection;
 
 /// <summary>
-/// Adds a singleton service of the type specified in serviceType with Attribute's target type as the implementation to the DI container.
+/// Adds a singleton service of the type specified in <paramref name="serviceType"/> with the Attribute's target type as the implementation to the DI container.
 /// </summary>
 /// <param name="serviceType">
 /// The type of the service to be registered under.

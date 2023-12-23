@@ -1,20 +1,23 @@
 ﻿using Finickyzone.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 
-using ServiceProvider serviceProvider = new ServiceCollection()
-    .AddServicesFromAssemblyOf<Program>()
-    .BuildServiceProvider();
+HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
-using IServiceScope scope = serviceProvider.CreateScope();
+builder.Services.AddServicesFromAssemblyOf<Program>();
 
-var singletonService = serviceProvider.GetRequiredService<SingletonService>();
-Console.WriteLine("Singleton Service: {0}", singletonService.Name);
+IHost host = builder.Build();
 
-var transientService = serviceProvider.GetRequiredService<TransientService>();
-Console.WriteLine("Transient Service: {0}", transientService.Name);
+using IServiceScope scope = host.Services.CreateScope();
 
-var scopedService = serviceProvider.GetRequiredService<ScopedService>();
-Console.WriteLine("Scoped Service: {0}", scopedService.Name);
+ILogger<Program> logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger<Program>();
 
-IEnumerable<IService> services = serviceProvider.GetServices<IService>();
-Console.WriteLine("{0} implementations: {1}", nameof(IService), string.Join(", ", services.Select(service => service.Name)));
+var singletonService = scope.ServiceProvider.GetRequiredService<SingletonService>();
+logger.LogInformation("Singleton Service: {Name}", singletonService.Name);
+
+var transientService = scope.ServiceProvider.GetRequiredService<TransientService>();
+logger.LogInformation("Transient Service: {Name}", transientService.Name);
+
+var scopedService = scope.ServiceProvider.GetRequiredService<ScopedService>();
+logger.LogInformation("Scoped Service: {Name}", scopedService.Name);
+
+IEnumerable<IService> services = scope.ServiceProvider.GetServices<IService>();
+logger.LogInformation("{ServiceType} implementations: {Names}", nameof(IService), string.Join(", ", services.Select(service => service.Name)));

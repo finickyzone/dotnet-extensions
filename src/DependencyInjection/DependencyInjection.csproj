@@ -6,6 +6,7 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Scrutor" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="Finickyzone.Extensions.Options" />

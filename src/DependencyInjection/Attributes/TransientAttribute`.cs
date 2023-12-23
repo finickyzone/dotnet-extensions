@@ -1,7 +1,7 @@
 ﻿namespace Finickyzone.Extensions.DependencyInjection;
 
 /// <summary>
-/// Adds a scoped service of the type specified in serviceType with Attribute's target type as the implementation to the DI container.
+/// Adds a transient service of the type specified in <typeparamref name="TService"/> with Attribute's target type as the implementation to the DI container.
 /// </summary>
 /// <typeparam name="TService">
 /// The type of the service to be registered under.
