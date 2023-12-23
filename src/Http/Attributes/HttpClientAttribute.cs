@@ -13,7 +13,7 @@ public class HttpClientAttribute(string? name = null) : GenericServiceAttribute
 {
     /// <summary>
     /// The logical name of the HttpClient to configure.
-    /// Leave empty to used the Attribute's Target type instead.
+    /// Leave empty to use the Attribute's Target type name instead.
     /// </summary>
     public string? Name { get; set; } = name;
 

@@ -34,7 +34,8 @@ app.Map("/", async (CatFactClient client, CancellationToken token) => Results.Ok
 app.Run();
 
 [HttpClient(ConfigSection = nameof(CatFactClient))]
-public sealed class CatFactClient CatFactClient(HttpClient client)
+[AdditionalHttpMessageHandler<CustomHttpMessageHandler>]
+public sealed class CatFactClient(HttpClient client)
 {
     public async Task<string?> GetCatFact(CancellationToken cancellationToken = default)
     {
@@ -43,6 +44,16 @@ public sealed class CatFactClient CatFactClient(HttpClient client)
     }
 
     private record Response(string Fact);
+}
+
+[Transient]
+public sealed class CustomHttpMessageHandler(ILogger<CustomHttpMessageHandler> logger) : DelegatingHandler
+{
+    protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        logger.LogInformation("Hello from {Handler}", nameof(CustomHttpMessageHandler));
+        return base.SendAsync(request, cancellationToken);
+    }
 }
 ```
 
@@ -61,6 +72,8 @@ public sealed class CatFactClient CatFactClient(HttpClient client)
 Attributes that can be applied to classes using HttpClient:
 
 - `HttpClientAttribute`
+- `PrimaryHttpMessageHandlerAttribute<THandler>`
+- `AdditionalHttpMessageHandlerAttribute<THandler>`
 
 ## Related Packages
 
