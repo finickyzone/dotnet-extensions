@@ -1,4 +1,5 @@
 using Finickyzone.Extensions.Http;
+using Finickyzone.Extensions.Samples.MessageHandlers;
 
 namespace Finickyzone.Extensions.Samples.Clients;
 
@@ -6,6 +7,7 @@ namespace Finickyzone.Extensions.Samples.Clients;
 /// Typed client
 /// </summary>
 [HttpClient(ConfigSection = nameof(CatFactClient))]
+[AdditionalHttpMessageHandler<CustomHttpMessageHandler>]
 public sealed class CatFactClient(HttpClient client)
 {
     public async Task<string?> GetCatFact(CancellationToken cancellationToken = default)
