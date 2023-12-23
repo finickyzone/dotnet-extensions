@@ -56,6 +56,7 @@ Attributes that can be applied on Services:
 - `KeyedScopedAttribute` and `KeyedScopedAttribute<TService>`
 - `KeyedSingletonAttribute` and `KeyedSingletonAttribute<TService>`
 - `KeyedTransientAttribute` and `KeyedTransientAttribute<TService>`
+- `DecorateAttribute` and `DecorateAttribute<TService>`
 
 Attributes that can be used for extensive capabilities:
 

@@ -1,7 +1,7 @@
 namespace Finickyzone.Extensions.DependencyInjection;
 
 /// <summary>
-/// Adds a scoped service of the type specified in serviceType with Attribute's target type as the implementation to the DI container.
+/// Adds a scoped service of the type specified in <typeparamref name="TService"/> with Attribute's target type as the implementation to the DI container.
 /// </summary>
 /// <param name="serviceKey">
 /// The <see cref="Microsoft.Extensions.DependencyInjection.ServiceDescriptor.ServiceKey"/> of the service.

@@ -64,7 +64,7 @@ public class ServiceCollectionExtensionsTests
         var expected = new ServiceCollection().Add(new ServiceDescriptor(serviceType, implementationType, lifetime));
 
         // Act
-        var actual = new ServiceCollection().Add(serviceType, implementationType, lifetime);
+        var actual = new ServiceCollection().AddService(serviceType, implementationType, lifetime);
 
 
         // Assert
@@ -81,7 +81,7 @@ public class ServiceCollectionExtensionsTests
         var expected = new ServiceCollection().Add(new ServiceDescriptor(serviceType, serviceType, lifetime));
 
         // Act
-        var actual = new ServiceCollection().Add(serviceType, lifetime);
+        var actual = new ServiceCollection().AddService(serviceType, lifetime);
 
         // Assert
         actual.Should().BeEquivalentTo(expected);
@@ -94,7 +94,7 @@ public class ServiceCollectionExtensionsTests
         var expected = new ServiceCollection().AddSingleton<SingletonService>();
 
         // Act
-        var actual = new ServiceCollection().Add<SingletonService>(ServiceLifetime.Singleton);
+        var actual = new ServiceCollection().AddService<SingletonService>(ServiceLifetime.Singleton);
 
         // Assert
         actual.Should().BeEquivalentTo(expected);
@@ -107,7 +107,7 @@ public class ServiceCollectionExtensionsTests
         var expected = new ServiceCollection().AddSingleton<IService, SingletonService>();
 
         // Act
-        var actual = new ServiceCollection().Add<IService, SingletonService>(ServiceLifetime.Singleton);
+        var actual = new ServiceCollection().AddService<IService, SingletonService>(ServiceLifetime.Singleton);
 
         // Assert
         actual.Should().BeEquivalentTo(expected);
@@ -131,7 +131,7 @@ public class ServiceCollectionExtensionsTests
         }
 
         // Act
-        var actual = new ServiceCollection().AddRange(descriptors);
+        var actual = new ServiceCollection().AddServices(descriptors);
 
         // Assert
         actual.Should().BeEquivalentTo(expected);
@@ -156,7 +156,7 @@ public class ServiceCollectionExtensionsTests
         }
 
         // Act
-        var actual = new ServiceCollection().AddRange(descriptors);
+        var actual = new ServiceCollection().AddServices(descriptors);
 
         // Assert
         actual.Should().BeEquivalentTo(expected);

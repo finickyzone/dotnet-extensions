@@ -9,5 +9,10 @@ namespace Finickyzone.Extensions.DependencyInjection;
 [MeansImplicitUse]
 public abstract class ServiceAttribute : Attribute
 {
+    /// <summary>
+    /// Determines the order in which services are registered
+    /// </summary>
+    public short Rank { get; set; }
+    
     protected internal abstract void Register(IServiceCollection services, Type targetType);
 }

@@ -1,8 +1,8 @@
-namespace Finickyzone.Extensions.DependencyInjection;
+namespace Finickyzone.Extensions.DependencyInjection.Internals;
 
 internal static class TypeExtensions
 {
-    public static bool InheritsFrom(this Type type, Type parent)
+    internal static bool InheritsFrom(this Type type, Type parent)
     {
         if (type.IsAssignableTo(parent))
         {
