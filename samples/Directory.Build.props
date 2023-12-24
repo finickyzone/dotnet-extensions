@@ -4,7 +4,4 @@
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <ItemGroup>
-    <Using Include="Finickyzone.Extensions.Samples" />
-  </ItemGroup>
 </Project>

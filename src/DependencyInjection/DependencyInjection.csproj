@@ -5,8 +5,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory">
+      <PrivateAssets>compile</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Scrutor" />
+    <PackageReference Include="Scrutor">
+      <PrivateAssets>compile</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="Finickyzone.Extensions.Options" />

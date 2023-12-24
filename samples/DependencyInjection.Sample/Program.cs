@@ -1,4 +1,5 @@
 ﻿using Finickyzone.Extensions.DependencyInjection;
+using Finickyzone.Extensions.Samples.Services;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 

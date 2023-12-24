@@ -1,4 +1,4 @@
-namespace Finickyzone.Extensions.Samples;
+namespace Finickyzone.Extensions.Samples.Services;
 
 public interface IService
 {

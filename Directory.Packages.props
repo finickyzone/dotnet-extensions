@@ -9,8 +9,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="BenchmarkDotNet" Version="0.13.11" />
     <PackageVersion Include="Bogus" Version="35.0.1" />
     <PackageVersion Include="JetBrains.Annotations" Version="2023.3.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />

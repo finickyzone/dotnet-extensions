@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <RootNamespace>Finickyzone.Extensions.Benchmarks</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="BenchmarkDotNet.Attributes" />
+    <Using Include="BenchmarkDotNet.Running" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+</Project>

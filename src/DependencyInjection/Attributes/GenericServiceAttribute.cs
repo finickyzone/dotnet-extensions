@@ -1,4 +1,7 @@
+using Finickyzone.Extensions.DependencyInjection.Internals;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System.Reflection;
 
 namespace Finickyzone.Extensions.DependencyInjection;
@@ -8,11 +11,21 @@ namespace Finickyzone.Extensions.DependencyInjection;
 /// </summary>
 public abstract class GenericServiceAttribute : ServiceAttribute
 {
+    private static readonly MemoryCache CachedMethods = new(Options.Create(new MemoryCacheOptions()));
+
     protected abstract void Register<TTarget>(IServiceCollection services) where TTarget : class;
 
     protected internal override void Register(IServiceCollection services, Type targetType)
     {
-        MethodInfo methodInfo = typeof(GenericServiceAttribute).GetMethods(BindingFlags.Instance | BindingFlags.NonPublic).Single(m => m is { Name: nameof(Register), IsGenericMethod: true });
-        methodInfo.MakeGenericMethod(targetType).Invoke(this, [services]);
+        GetMethodInvoker(targetType)!.Invoke(this, services);
+    }
+
+    private static MethodInvoker? GetMethodInvoker(Type targetType)
+    {
+        return CachedMethods.GetOrCreate(targetType, _ =>
+        {
+            MethodInfo? methodInfo = typeof(GenericServiceAttribute).GetMethod(nameof(Register), BindingFlags.Instance | BindingFlags.NonPublic, [typeof(IServiceCollection)]);
+            return methodInfo?.MakeGenericMethod(targetType).ToMethodInvoker();
+        });
     }
 }
