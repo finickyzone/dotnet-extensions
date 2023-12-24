@@ -1,4 +1,5 @@
 ﻿using Finickyzone.Extensions.DependencyInjection;
+using Finickyzone.Extensions.Samples;
 using Microsoft.Extensions.Options;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

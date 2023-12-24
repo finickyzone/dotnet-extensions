@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Finickyzone.Extensions.DependencyInjection.Internals;
 
 internal static class TypeExtensions
@@ -9,5 +11,10 @@ internal static class TypeExtensions
             return true;
         }
         return Array.Exists(type.GetInterfaces(), typeInterface => typeInterface.GetGenericTypeDefinition() == parent);
+    }
+
+    internal static MethodInvoker? ToMethodInvoker(this MethodInfo? methodInfo)
+    {
+        return methodInfo is null ? null : MethodInvoker.Create(methodInfo);
     }
 }

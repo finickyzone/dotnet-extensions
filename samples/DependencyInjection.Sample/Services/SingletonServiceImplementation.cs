@@ -1,6 +1,6 @@
 ﻿using Finickyzone.Extensions.DependencyInjection;
 
-namespace Finickyzone.Extensions.Samples;
+namespace Finickyzone.Extensions.Samples.Services;
 
 [Singleton<IService>]
 public sealed class SingletonServiceImplementation : IService

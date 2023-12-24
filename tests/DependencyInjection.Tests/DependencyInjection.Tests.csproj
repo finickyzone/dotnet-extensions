@@ -6,4 +6,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\DependencyInjection\DependencyInjection.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Scrutor" />
+  </ItemGroup>
 </Project>

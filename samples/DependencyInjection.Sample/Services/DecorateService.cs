@@ -1,6 +1,6 @@
 using Finickyzone.Extensions.DependencyInjection;
 
-namespace Finickyzone.Extensions.Samples;
+namespace Finickyzone.Extensions.Samples.Services;
 
 [Decorate<IService>]
 public sealed class DecorateService(IService service, ILoggerFactory loggerFactory) : IService
